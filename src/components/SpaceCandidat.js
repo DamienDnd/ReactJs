@@ -2,20 +2,31 @@ import CandidatureForm from './CandidatureForm';
 import React from 'react';
 import { Button, Collapse } from 'reactstrap';
 import SpaceNavbar from './SpaceNavbar';
+import './SpaceCandidat.css';
 
 class SpaceCandidat extends React.Component {
     constructor(props) {
         super(props);
 
-        this.toggleCandidature = this.toggleCandidature.bind(this);
+        this.toggleCandidatureForm = this.toggleCandidatureForm.bind(this);
+        this.toggleInformationsForm = this.toggleInformationsForm.bind(this);
         this.state = {
-          toggle: false
+          toggleCandidature: false,
+          toggleInformations: false
         };
     }
 
-    toggleCandidature() {
+    toggleCandidatureForm() {
         this.setState({
-          toggle: !this.state.toggle
+          toggleCandidature: !this.state.toggleCandidature,
+          toggleInformations: false
+        });
+    }
+
+    toggleInformationsForm() {
+        this.setState({
+            toggleInformations: !this.state.toggleInformations,
+            toggleCandidature: false
         });
     }
 
@@ -24,12 +35,15 @@ class SpaceCandidat extends React.Component {
             <div>
                 <SpaceNavbar></SpaceNavbar>
                 <div className="text-center">
-                    <Button color="primary" size="lg">Mes informations</Button>
+                    <Button onClick={this.toggleInformationsForm} size="lg">Mes informations</Button>
                 </div>
+                <Collapse isOpen={this.state.toggleInformations}>
+                    <div className="text-center">--->  Hello World !  ---> Hello You !</div>
+                </Collapse>
                 <div className="text-center">
-                    <Button onClick={this.toggleCandidature} size="lg" color="primary">Créer une candidature</Button>
+                    <Button onClick={this.toggleCandidatureForm} size="lg" color="primary">Créer une candidature</Button>
                 </div>
-                <Collapse isOpen={this.state.toggle}>
+                <Collapse isOpen={this.state.toggleCandidature}>
                     <CandidatureForm></CandidatureForm>
                 </Collapse>
             </div>

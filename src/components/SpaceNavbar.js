@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavItem, Button, NavbarBrand } from 'reactstrap';
+import './SpaceNavbar.css'
 
 export default class SpaceNavbar extends Component {
   render() {

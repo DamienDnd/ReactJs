@@ -65,8 +65,10 @@ class CandidatureForm extends Component {
                 <label for="files">Vos autres fichiers</label>
                 <input type="file" name="files" id="otherFiles" multiple/>
               </div>
-              <Button color="danger" type="button">Annuler</Button>
-              <Button color="primary" onClick={this.handleSubmit}>Envoyer</Button>
+              <div className="text-center">
+                <Button color="danger" type="button">Annuler</Button>
+                <Button color="primary" onClick={this.handleSubmit}>Envoyer</Button>
+              </div>
             </form>
           </div>
         </Collapse>
