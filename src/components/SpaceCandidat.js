@@ -7,15 +7,15 @@ class SpaceCandidat extends React.Component {
     constructor(props) {
         super(props);
 
-        this.toggle = this.toggle.bind(this);
+        this.toggleCandidature = this.toggleCandidature.bind(this);
         this.state = {
-          isOpen: false
+          toggle: false
         };
     }
 
-    toggle() {
+    toggleCandidature() {
         this.setState({
-          isOpen: !this.state.isOpen
+          toggle: !this.state.toggle
         });
     }
 
@@ -23,8 +23,13 @@ class SpaceCandidat extends React.Component {
         return(
             <div>
                 <SpaceNavbar></SpaceNavbar>
-                <Button onClick={this.toggle}>Créer une candidature</Button>
-                <Collapse isOpen={this.state.isOpen}>
+                <div className="text-center">
+                    <Button color="primary" size="lg">Mes informations</Button>
+                </div>
+                <div className="text-center">
+                    <Button onClick={this.toggleCandidature} size="lg" color="primary">Créer une candidature</Button>
+                </div>
+                <Collapse isOpen={this.state.toggle}>
                     <CandidatureForm></CandidatureForm>
                 </Collapse>
             </div>
